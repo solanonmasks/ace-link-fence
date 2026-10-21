@@ -1,0 +1,192 @@
+---
+// The shared page frame: <head>, emergency top bar, header + mobile menu,
+// closing call-to-action band, footer and the sticky mobile Call/Quote bar.
+// Business details come from src/data/site.js.
+import { site, images } from '../data/site.js';
+
+const {
+  title,
+  description,
+  current = 'home', // which nav link is highlighted: 'home' | 'work' | 'contact'
+  showCta = true, // the "Commitment and quality" band above the footer
+} = Astro.props;
+
+const nav = [
+  { key: 'home', label: 'Home', href: '/' },
+  { key: 'work', label: 'Projects', href: '/projects' },
+  { key: 'contact', label: 'Contact', href: '/contact' },
+];
+
+const tel = `tel:${site.phone.tel}`;
+const canonical = new URL(Astro.url.pathname, site.url).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: site.name,
+  url: site.url,
+  image: images.ogImage,
+  telephone: '+1-' + site.phone.display,
+  email: site.email,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: site.address.city,
+    addressRegion: site.address.region,
+    addressCountry: site.address.country,
+  },
+  areaServed: site.serviceAreas.map((c) => ({ '@type': 'City', name: `${c}, BC` })),
+  sameAs: [site.social.facebook, site.social.instagram],
+};
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={site.name} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={images.ogImage} />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <script src="/motion.js" is:inline defer></script>
+</head>
+<body>
+
+<div style="background:#F2C230;color:#1A2229">
+  <div style="max-width:1440px;margin:0 auto;padding:9px clamp(20px,4vw,56px);display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:14px">
+    <span>EMERGENCY FENCE REPAIR · RESIDENTIAL &amp; COMMERCIAL</span>
+    <a href={tel} style="color:#1A2229;text-decoration:none">CALL {site.phone.display}</a>
+  </div>
+</div>
+
+<header style="position:sticky;top:0;z-index:40;background:#1A2229;border-bottom:1px solid #2F3B45">
+  <div style="max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,56px);height:84px;display:flex;align-items:center;gap:36px">
+    <a href="/" style="display:flex;align-items:center;gap:14px;text-decoration:none;color:#EEF1F3;margin-right:auto;min-width:0;white-space:nowrap">
+      <span style="width:42px;height:42px;background:#F2C230;color:#1A2229;display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-weight:700;font-size:26px">A</span>
+      <span style="display:flex;flex-direction:column;line-height:1;white-space:nowrap;min-width:0">
+        <span style="font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(20px,5.6vw,28px);text-transform:uppercase;letter-spacing:0.02em">{site.shortName}</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#A8B4BE;margin-top:3px">FAMILY-OWNED · SURREY, BC</span>
+      </span>
+    </a>
+
+    <!-- Desktop nav (hidden below 1140px by CSS) -->
+    <nav class="desktop-only" aria-label="Main" style="gap:30px;align-items:center">
+      {nav.map((n) => (
+        <a href={n.href} aria-current={current === n.key ? 'page' : undefined} style={`font-family:'Oswald',sans-serif;font-weight:600;font-size:18px;text-transform:uppercase;letter-spacing:0.04em;color:${current === n.key ? '#F2C230' : '#EEF1F3'};text-decoration:none`}>{n.label}</a>
+      ))}
+    </nav>
+    <a href="/contact" class="desktop-only btn-yellow" style="color:#1A2229;font-family:'Oswald',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:0.04em;padding:14px 22px;text-decoration:none;white-space:nowrap">Get a Quote</a>
+
+    <!-- Mobile menu button (shown below 1140px by CSS) -->
+    <button id="menu-toggle" class="mobile-only" type="button" aria-expanded="false" aria-controls="mobile-menu" style="background:#F2C230;border:none;color:#1A2229;font-family:'Oswald',sans-serif;font-weight:700;font-size:17px;text-transform:uppercase;padding:11px 16px;cursor:pointer">Menu</button>
+  </div>
+
+  <div id="mobile-menu" class="mobile-menu" hidden style="padding:8px 20px 32px;flex-direction:column">
+    {nav.map((n) => (
+      <a href={n.href} aria-current={current === n.key ? 'page' : undefined} style="color:#EEF1F3;text-decoration:none;font-family:'Oswald',sans-serif;font-weight:700;font-size:46px;text-transform:uppercase;line-height:1.15">{n.label}</a>
+    ))}
+    <a href={tel} style="color:#F2C230;text-decoration:none;font-family:'Oswald',sans-serif;font-weight:700;font-size:28px;margin-top:16px">{site.phone.display}</a>
+  </div>
+</header>
+
+<slot />
+
+{showCta && (
+  <section style="border-top:1px solid #2F3B45">
+    <div style="max-width:1440px;margin:0 auto;padding:clamp(64px,8vw,112px) clamp(20px,4vw,56px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px 64px">
+      <h2 style="font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(52px,7vw,128px);line-height:0.88;text-transform:uppercase;margin:0;max-width:9em">Commitment and quality <span style="color:#F2C230">is our promise.</span></h2>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <a href="/contact" style="background:#F2C230;color:#1A2229;font-family:'Oswald',sans-serif;font-weight:700;font-size:21px;text-transform:uppercase;padding:18px 30px;text-decoration:none;white-space:nowrap">Get a Free Quote</a>
+        <a href={tel} style="border:2px solid #EEF1F3;color:#FFFFFF;font-family:'Oswald',sans-serif;font-weight:700;font-size:21px;text-transform:uppercase;padding:16px 28px;text-decoration:none;white-space:nowrap">{site.phone.display}</a>
+      </div>
+    </div>
+  </section>
+)}
+
+<footer style="background:#11171C;color:#A8B4BE">
+  <div style="max-width:1440px;margin:0 auto;padding:56px clamp(20px,4vw,56px) 28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:28px 56px;font-size:16px">
+    <div><span style="display:block;font-family:'Oswald',sans-serif;font-weight:700;font-size:28px;text-transform:uppercase;color:#EEF1F3">{site.name}</span>{site.tagline}</div>
+    <div style="display:flex;flex-direction:column;gap:6px"><a href={tel} style="color:#FFFFFF;font-weight:700;text-decoration:none">{site.phone.display}</a><a href={`mailto:${site.email}`} style="color:#A8B4BE">{site.email}</a></div>
+    <div style="display:flex;flex-direction:column;gap:6px"><span>Surrey and all Lower Mainland cities</span><span>Residential and commercial</span></div>
+    <div style="display:flex;flex-wrap:wrap;gap:6px 16px"><a href={site.social.facebook} target="_blank" rel="noopener" style="color:#A8B4BE">Facebook</a><a href={site.social.instagram} target="_blank" rel="noopener" style="color:#A8B4BE">Instagram</a></div>
+  </div>
+  <div style="max-width:1440px;margin:0 auto;padding:16px clamp(20px,4vw,56px) 28px;font-size:14px;color:#76838E">© {new Date().getFullYear()} {site.name}</div>
+  <!-- Spacer so the sticky mobile bar doesn't cover the footer -->
+  <div class="mobile-only" style="height:66px"></div>
+</footer>
+
+<!-- Sticky bottom bar (mobile only) -->
+<div class="mobile-bar">
+  <a href={tel} style="background:#1A2229;color:#EEF1F3;font-family:'Oswald',sans-serif;font-weight:700;font-size:19px;text-transform:uppercase;text-align:center;padding:19px 8px;text-decoration:none;border-top:2px solid #F2C230">Call now</a>
+  <a href="/contact" style="background:#F2C230;color:#1A2229;font-family:'Oswald',sans-serif;font-weight:700;font-size:19px;text-transform:uppercase;text-align:center;padding:19px 8px;text-decoration:none">Get a Quote</a>
+</div>
+
+<script is:inline>
+  // Mobile menu: open/close when the Menu button is pressed.
+  (function () {
+    var btn = document.getElementById('menu-toggle');
+    var menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function () {
+      var open = menu.hidden;
+      menu.hidden = !open;
+      btn.setAttribute('aria-expanded', String(open));
+      btn.textContent = open ? 'Close' : 'Menu';
+    });
+  })();
+</script>
+
+<style is:global>
+  html, body { margin: 0; padding: 0; background: #1A2229; color: #EEF1F3; }
+  body {
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  a { color: #F2C230; text-underline-offset: 4px; }
+  a:hover { color: #FFFFFF; }
+  img { display: block; }
+  input, select, textarea, button { font-family: inherit; }
+
+  /* Hover states (from the prototype's style-hover attributes) */
+  .btn-yellow { background: #F2C230; }
+  .btn-yellow:hover { background: #FFD54D; }
+  .btn-outline:hover { background: #EEF1F3; color: #1A2229 !important; }
+  .call-block { background: #1A2229; }
+  .call-block:hover { background: #000000; }
+
+  /* Responsive header: desktop nav at 1140px+, Menu button + bottom bar below */
+  .desktop-only { display: flex; }
+  .mobile-only { display: none; }
+  .mobile-menu:not([hidden]) { display: flex; }
+  .mobile-bar { display: none; }
+
+  @media (max-width: 1139.98px) {
+    .desktop-only { display: none; }
+    .mobile-only { display: block; }
+    .mobile-bar {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+      display: grid; grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (min-width: 1140px) {
+    .mobile-menu { display: none !important; }
+  }
+</style>
+</body>
+</html>

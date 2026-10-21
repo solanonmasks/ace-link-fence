@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Ace Link Fence Ltd. | Chain link, steel and security fencing in Surrey and the Lower Mainland</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+<script src="./motion.js"></script>
+<style>
+html,body{margin:0;padding:0;background:#1A2229;color:#EEF1F3}
+*{box-sizing:border-box}
+a{color:#F2C230;text-underline-offset:4px}
+a:hover{color:#FFFFFF}
+img{display:block}
+input,select,textarea,button{font-family:inherit}
+</style>
+</helmet>
+
+<div style="font-family:'IBM Plex Sans',system-ui,sans-serif;font-size:18px;line-height:1.6;color:#EEF1F3;background:#1A2229;min-height:100vh">
+
+<div style="background:#F2C230;color:#1A2229">
+  <div style="max-width:1440px;margin:0 auto;padding:9px clamp(20px,4vw,56px);display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:14px">
+    <span>EMERGENCY FENCE REPAIR · RESIDENTIAL &amp; COMMERCIAL</span>
+    <a href="tel:16048258777" style="color:#1A2229;text-decoration:none">CALL 604-825-8777</a>
+  </div>
+</div>
+
+<header style="position:sticky;top:0;z-index:40;background:#1A2229;border-bottom:1px solid #2F3B45">
+  <div style="max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,56px);height:84px;display:flex;align-items:center;gap:36px">
+    <a href="#" onClick="{{ goHome }}" style="display:flex;align-items:center;gap:14px;text-decoration:none;color:#EEF1F3;margin-right:auto;min-width:0;white-space:nowrap">
+      <span style="width:42px;height:42px;background:#F2C230;color:#1A2229;display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-weight:700;font-size:26px">A</span>
+      <span style="display:flex;flex-direction:column;line-height:1;white-space:nowrap;min-width:0">
+        <span style="font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(20px,5.6vw,28px);text-transform:uppercase;letter-spacing:0.02em">Ace Link Fence</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#A8B4BE;margin-top:3px">FAMILY-OWNED · SURREY, BC</span>
+      </span>
+    </a>
+    <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+      <nav style="display:flex;gap:30px;align-items:center">
+        <sc-for list="{{ nav }}" as="n" hint-placeholder-count="3">
+          <a href="#" onClick="{{ n.go }}" style="font-family:'Oswald',sans-serif;font-weight:600;font-size:18px;text-transform:uppercase;letter-spacing:0.04em;color:{{ n.color }};text-decoration:none">{{ n.label }}</a>
+        </sc-for>
+      </nav>
+      <a href="#" onClick="{{ goContact }}" style="background:#F2C230;color:#1A2229;font-family:'Oswald',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:0.04em;padding:14px 22px;text-decoration:none;white-space:nowrap" style-hover="background:#FFD54D">Get a Quote</a>
+    </sc-if>
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ toggleMenu }}" style="background:#F2C230;border:none;color:#1A2229;font-family:'Oswald',sans-serif;font-weight:700;font-size:17px;text-transform:uppercase;padding:11px 16px;cursor:pointer">{{ menuLabel }}</button>
+    </sc-if>
+  </div>
+  <sc-if value="{{ menuShown }}" hint-placeholder-val="{{ false }}">
+    <div style="padding:8px 20px 32px;display:flex;flex-direction:column">
+      <sc-for list="{{ nav }}" as="n" hint-placeholder-count="3">
+        <a href="#" onClick="{{ n.go }}" style="color:#EEF1F3;text-decoration:none;font-family:'Oswald',sans-serif;font-weight:700;font-size:46px;text-transform:uppercase;line-height:1.15">{{ n.label }}</a>
+      </sc-for>
+    </div>
+  </sc-if>
+</header>
+
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+<main data-screen-label="Home">
+  <section style="position:relative;min-height:max(620px,calc(100vh - 122px));display:flex;align-items:flex-end;overflow:hidden">
+    <img src="https://acelinkfenceltd.ca/wp-content/uploads/2019/08/5-13-2.jpg" alt="Commercial chain link fence and gate" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,34,41,0.25) 0%,rgba(26,34,41,0.55) 45%,rgba(26,34,41,0.96) 100%)"></div>
+    <div style="position:relative;max-width:1440px;width:100%;margin:0 auto;padding:80px clamp(20px,4vw,56px) clamp(40px,5vw,72px)">
+      <span style="font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:14px;color:#F2C230">CHAIN LINK · STEEL · SECURITY · GATES</span>
+      <h1 style="font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(64px,9vw,168px);line-height:0.88;text-transform:uppercase;margin:14px 0 0;color:#FFFFFF;max-width:9em">Fences that <span style="color:#F2C230">hold the line.</span></h1>
+      <div style="margin-top:28px;display:flex;flex-wrap:wrap;gap:24px 56px;align-items:flex-end;justify-content:space-between">
+        <p style="margin:0;max-width:34em;font-size:clamp(18px,1.5vw,21px);color:#DCE2E6">Chain link, steel, cladding and ornamental fences, cantilever and custom gates, sport court and pool enclosures. Installed and repaired for homes, businesses and job sites across the Lower Mainland.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <a href="#" onClick="{{ goContact }}" style="background:#F2C230;color:#1A2229;font-family:'Oswald',sans-serif;font-weight:700;font-size:21px;text-transform:uppercase;padding:18px 30px;text-decoration:none;white-space:nowrap" style-hover="background:#FFD54D">Get a Free Quote</a>
+          <a href="tel:16048258777" style="border:2px solid #EEF1F3;color:#FFFFFF;font-family:'Oswald',sans-serif;font-weight:700;font-size:21px;text-transform:uppercase;padding:16px 28px;text-decoration:none;white-space:nowrap" style-hover="background:#EEF1F3;color:#1A2229">604-825-8777</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-bottom:1px solid #2F3B45">
+    <div style="max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))">
+      <div style="padding:26px 24px 26px 0;border-right:1px solid #2F3B45"><span style="display:block;font-family:'Oswald',sans-serif;font-weight:700;font-size:40px;line-height:1;color:#F2C230">Best of 2019</span>TrustedPros.ca</div>
+      <div style="padding:26px 24px;border-right:1px solid #2F3B45"><span style="display:block;font-family:'Oswald',sans-serif;font-weight:700;font-size:40px;line-height:1;color:#F2C230">Top 3 · 2023</span>Fencing contractors in Surrey</div>
+      <div style="padding:26px 24px;border-right:1px solid #2F3B45"><span style="display:block;font-family:'Oswald',sans-serif;font-weight:700;font-size:40px;line-height:1;color:#F2C230">Res + Com</span>Homes, businesses, job sites</div>
+      <div style="padding:26px 0 26px 24px"><span style="display:block;font-family:'Oswald',sans-serif;font-weight:700;font-size:40px;line-height:1;color:#F2C230">Emergency</span>Repairs when it can’t wait</div>
+    </div>
+  </section>
+
+  <section style="max-width:1440px;margin:0 auto;padding:clamp(64px,8vw,120px) clamp(20px,4vw,56px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px 60px;margin-bottom:clamp(32px,4vw,52px)">
+      <h2 style="font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(52px,6vw,108px);line-height:0.9;text-transform:uppercase;margin:0">What we <span style="color:#F2C230">install</span></h2>
+      <p style="margin:0;max-width:28em;color:#C7D0D6">From a backyard dog run to a gated industrial yard. We help you pick the right fence for the job and the budget.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px">
+      <sc-for list="{{ services }}" as="s" hint-placeholder-count="8">
+        <a href="#" onClick="{{ goWork }}" style="position:relative;display:block;aspect-ratio:4/3;overflow:hidden;color:#FFFFFF;text-decoration:none;background:#23303A">
+          <img src="{{ s.img }}" alt="{{ s.title }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,34,41,0) 35%,rgba(26,34,41,0.94) 100%)"></div>
+          <span style="position:absolute;top:14px;left:16px;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;color:#1A2229;background:#F2C230;padding:3px 8px">{{ s.tag }}</span>
+          <div style="position:absolute;left:0;right:0;bottom:0;padding:20px 22px">
+            <h3 style="font-family:'Oswald',sans-serif;font-weight:700;font-size:32px;line-height:1;text-transform:uppercase;margin:0">{{ s.title }}</h3>
+            <p style="margin:6px 0 0;color:#DCE2E6;font-size:16px">{{ s.desc }}</p>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="background:#F2C230;color:#1A2229">
+    <div style="max-width:1440px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(20px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:28px 80px;align-items:center">
+      <div>
+        <h2 style="font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(52px,6vw,108px);line-height:0.9;text-transform:uppercase;margin:0">Fence down? Gate jammed?</h2>
+        <p style="margin:18px 0 0;font-size:20px;max-width:28em;font-weight:500">Vehicle damage, storm damage, a break-in or a gate that won’t close. Call and we’ll get your property secure again.</p>
+      </div>
+      <a href="tel:16048258777" style="display:block;background:#1A2229;color:#FFFFFF;text-decoration:none;padding:clamp(24px,3vw,40px)" style-hover="background:#000000">
+        <span style="display:block;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:14px;color:#F2C230">EMERGENCY REPAIR LINE</span>
+        <span style="display:block;font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(52px,5.8vw,96px);line-height:1.05">604-825-8777</span>
+      </a>
+    </div>
+  </section>
+
+  <section style="max-width:1440px;margin:0 auto;padding:clamp(64px,8vw,120px) clamp(20px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:40px 96px;align-items:center">
+    <div style="aspect-ratio:4/3;overflow:hidden"><img src="https://acelinkfenceltd.ca/wp-content/uploads/2019/08/1-12-4.jpg" alt="Fence installation" style="width:100%;height:100%;object-fit:cover"></div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <h2 style="font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(44px,5vw,84px);line-height:0.92;text-transform:uppercase;margin:0">Family-owned. <span style="color:#F2C230">Built to spec.</span></h2>
+      <p style="margin:0;color:#C7D0D6">Ace Link Fence is a family business serving Surrey and every Lower Mainland city. We work with homeowners, property managers, builders and businesses, and we’ll tell you straight which fence fits your property and budget.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#2F3B45;border:1px solid #2F3B45">
+        <span style="background:#1A2229;padding:16px 18px;font-weight:600">Professional crews</span>
+        <span style="background:#1A2229;padding:16px 18px;font-weight:600">Certified experience</span>
+        <span style="background:#1A2229;padding:16px 18px;font-weight:600">Competitive prices</span>
+        <span style="background:#1A2229;padding:16px 18px;font-weight:600">Welding in-house</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#23303A;color:#EEF1F3">
+    <div style="max-width:1440px;margin:0 auto;padding:clamp(64px,8vw,112px) clamp(20px,4vw,56px)">
+      <h2 style="font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(44px,5vw,84px);line-height:0.95;letter-spacing:-0.02em;margin:0 0 clamp(28px,3vw,44px)">How a job <span style="color:#F2C230">runs</span></h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:0 32px"><div style="border-top:3px solid #F2C230;padding-top:18px;margin-bottom:24px"><span style="display:block;font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:44px;line-height:1;color:#F2C230">01</span><h3 style="font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:26px;line-height:1.1;margin:10px 0 6px">Call or send the form</h3><p style="margin:0;color:#C7D0D6;font-size:17px">Tell us the property, the fence and the timeline.</p></div><div style="border-top:3px solid #F2C230;padding-top:18px;margin-bottom:24px"><span style="display:block;font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:44px;line-height:1;color:#F2C230">02</span><h3 style="font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:26px;line-height:1.1;margin:10px 0 6px">On-site measure</h3><p style="margin:0;color:#C7D0D6;font-size:17px">We check the line, grade and access, and recommend the right system.</p></div><div style="border-top:3px solid #F2C230;padding-top:18px;margin-bottom:24px"><span style="display:block;font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:44px;line-height:1;color:#F2C230">03</span><h3 style="font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:26px;line-height:1.1;margin:10px 0 6px">Fixed quote</h3><p style="margin:0;color:#C7D0D6;font-size:17px">Materials, gates, footage and install dates in writing.</p></div><div style="border-top:3px solid #F2C230;padding-top:18px;margin-bottom:24px"><span style="display:block;font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:44px;line-height:1;color:#F2C230">04</span><h3 style="font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:26px;line-height:1.1;margin:10px 0 6px">Install and weld</h3><p style="margin:0;color:#C7D0D6;font-size:17px">Our crew sets posts, hangs fabric and welds gates on site.</p></div></div>
+    </div>
+  </section>
+
+  <section style="background:#1A2229;color:#EEF1F3">
+    <div style="max-width:1440px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(20px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:28px 80px;align-items:start">
+      <h2 style="font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(40px,4.4vw,72px);line-height:0.95;letter-spacing:-0.02em;margin:0">Where we work</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:10px 28px;font-size:20px;font-weight:600"><span style="border-bottom:3px solid #F2C230;padding-bottom:4px">Surrey</span><span style="border-bottom:3px solid #F2C230;padding-bottom:4px">Langley</span><span style="border-bottom:3px solid #F2C230;padding-bottom:4px">Abbotsford</span><span style="border-bottom:3px solid #F2C230;padding-bottom:4px">Aldergrove</span><span style="border-bottom:3px solid #F2C230;padding-bottom:4px">Delta</span><span style="border-bottom:3px solid #F2C230;padding-bottom:4px">Richmond</span><span style="border-bottom:3px solid #F2C230;padding-bottom:4px">Burnaby</span><span style="border-bottom:3px solid #F2C230;padding-bottom:4px">Coquitlam</span><span style="border-bottom:3px solid #F2C230;padding-bottom:4px">New Westminster</span><span style="border-bottom:3px solid #F2C230;padding-bottom:4px">Vancouver</span><span style="border-bottom:3px solid #F2C230;padding-bottom:4px">Maple Ridge</span><span style="border-bottom:3px solid #F2C230;padding-bottom:4px">Pitt Meadows</span><span style="border-bottom:3px solid #F2C230;padding-bottom:4px">Mission</span><span style="flex-basis:100%;font-size:17px;font-weight:400;color:#C7D0D6;margin-top:6px">Not on the list? Call anyway. If we can get there, we will.</span></div>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<sc-if value="{{ isWork }}" hint-placeholder-val="{{ false }}">
+<main data-screen-label="Gallery">
+  <section style="max-width:1440px;margin:0 auto;padding:clamp(48px,6vw,96px) clamp(20px,4vw,56px) 40px">
+    <h1 style="font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(64px,8vw,148px);line-height:0.88;text-transform:uppercase;margin:0">Projects</h1>
+  </section>
+  <section style="max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,56px) clamp(64px,8vw,112px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:8px">
+      <sc-for list="{{ gallery }}" as="p" hint-placeholder-count="12">
+        <div style="aspect-ratio:4/3;overflow:hidden;background:#23303A"><img src="{{ p }}" alt="Ace Link Fence project" style="width:100%;height:100%;object-fit:cover"></div>
+      </sc-for>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+<main data-screen-label="Contact">
+  <section style="max-width:1440px;margin:0 auto;padding:clamp(48px,6vw,96px) clamp(20px,4vw,56px) clamp(64px,8vw,112px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:48px 80px;align-items:start">
+    <div>
+      <h1 style="font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(60px,7.4vw,128px);line-height:0.88;text-transform:uppercase;margin:0 0 18px">Get a quote</h1>
+      <p style="margin:0 0 32px;font-size:20px;color:#C7D0D6">Tell us about your project idea and we’ll call to schedule an appointment.</p>
+      <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+      <form onSubmit="{{ submit }}" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:18px">
+        <label style="display:flex;flex-direction:column;gap:8px;font-weight:600">Name<input required="" name="name" autocomplete="name" style="font-size:18px;padding:16px;border:2px solid #3A4854;background:#23303A;color:#EEF1F3"></label>
+        <label style="display:flex;flex-direction:column;gap:8px;font-weight:600">Phone<input required="" type="tel" name="phone" autocomplete="tel" style="font-size:18px;padding:16px;border:2px solid #3A4854;background:#23303A;color:#EEF1F3"></label>
+        <label style="display:flex;flex-direction:column;gap:8px;font-weight:600">Email<input type="email" name="email" autocomplete="email" style="font-size:18px;padding:16px;border:2px solid #3A4854;background:#23303A;color:#EEF1F3"></label>
+        <label style="display:flex;flex-direction:column;gap:8px;font-weight:600">Property type
+          <select name="type" style="font-size:18px;padding:16px;border:2px solid #3A4854;background:#23303A;color:#EEF1F3"><option>Residential</option><option>Commercial</option><option>Industrial or job site</option><option>Strata</option></select></label>
+        <label style="display:flex;flex-direction:column;gap:8px;font-weight:600">What do you need?
+          <select name="need" style="font-size:18px;padding:16px;border:2px solid #3A4854;background:#23303A;color:#EEF1F3"><option>Chain link fence</option><option>Gate (cantilever, swing or custom)</option><option>Steel or ornamental fence</option><option>Cladding or privacy fence</option><option>Sport court or pool fence</option><option>Welded handrails</option><option>Security (bollards, razor wire)</option><option>Emergency repair</option></select></label>
+        <label style="display:flex;flex-direction:column;gap:8px;font-weight:600">City<input name="city" autocomplete="address-level2" style="font-size:18px;padding:16px;border:2px solid #3A4854;background:#23303A;color:#EEF1F3"></label>
+        <label style="grid-column:1/-1;display:flex;flex-direction:column;gap:8px;font-weight:600">Project details
+          <textarea name="desc" rows="5" placeholder="About 220 ft of 8 ft chain link around a Langley yard, with a 24 ft cantilever gate at the entrance." style="font-size:18px;padding:16px;border:2px solid #3A4854;background:#23303A;color:#EEF1F3;resize:vertical;line-height:1.5"></textarea></label>
+        <div style="grid-column:1/-1"><button type="submit" style="background:#F2C230;color:#1A2229;font-family:'Oswald',sans-serif;font-weight:700;font-size:21px;text-transform:uppercase;padding:18px 34px;border:none;cursor:pointer" style-hover="background:#FFD54D">Send request</button></div>
+      </form>
+      </sc-if>
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#F2C230;color:#1A2229;padding:clamp(28px,4vw,48px);display:flex;flex-direction:column;gap:12px">
+          <h2 style="font-family:'Oswald',sans-serif;font-weight:700;font-size:52px;line-height:1;text-transform:uppercase;margin:0">Request received.</h2>
+          <p style="margin:0;font-weight:500">We’ll call to schedule an appointment. For an emergency, call 604-825-8777.</p>
+          <div><button onClick="{{ resetForm }}" style="background:#1A2229;color:#EEF1F3;border:none;font-weight:600;font-size:16px;padding:12px 20px;cursor:pointer">Send another</button></div>
+        </div>
+      </sc-if>
+    </div>
+    <aside style="background:#23303A;padding:clamp(32px,4vw,56px);display:flex;flex-direction:column;gap:24px;border-top:6px solid #F2C230">
+      <div><span style="font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:14px;color:#F2C230">CALL US</span><a href="tel:16048258777" style="display:block;font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(52px,5.4vw,84px);line-height:1;color:#FFFFFF;text-decoration:none;margin-top:4px">604-825-8777</a></div>
+      <div><strong style="display:block">Email</strong><a href="mailto:sales@acelinkfenceltd.ca">sales@acelinkfenceltd.ca</a></div>
+      <div><strong style="display:block">Service area</strong>Surrey, Langley, Abbotsford, Aldergrove, Delta, Richmond, Burnaby, Coquitlam, New Westminster, Vancouver, Maple Ridge, Pitt Meadows and Mission</div>
+    </aside>
+  </section>
+</main>
+</sc-if>
+
+<sc-if value="{{ notContact }}" hint-placeholder-val="{{ true }}">
+  <section style="border-top:1px solid #2F3B45">
+    <div style="max-width:1440px;margin:0 auto;padding:clamp(64px,8vw,112px) clamp(20px,4vw,56px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px 64px">
+      <h2 style="font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(52px,7vw,128px);line-height:0.88;text-transform:uppercase;margin:0;max-width:9em">Commitment and quality <span style="color:#F2C230">is our promise.</span></h2>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <a href="#" onClick="{{ goContact }}" style="background:#F2C230;color:#1A2229;font-family:'Oswald',sans-serif;font-weight:700;font-size:21px;text-transform:uppercase;padding:18px 30px;text-decoration:none;white-space:nowrap">Get a Free Quote</a>
+        <a href="tel:16048258777" style="border:2px solid #EEF1F3;color:#FFFFFF;font-family:'Oswald',sans-serif;font-weight:700;font-size:21px;text-transform:uppercase;padding:16px 28px;text-decoration:none;white-space:nowrap">604-825-8777</a>
+      </div>
+    </div>
+  </section>
+</sc-if>
+
+<footer style="background:#11171C;color:#A8B4BE">
+  <div style="max-width:1440px;margin:0 auto;padding:56px clamp(20px,4vw,56px) 28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:28px 56px;font-size:16px">
+    <div><span style="display:block;font-family:'Oswald',sans-serif;font-weight:700;font-size:28px;text-transform:uppercase;color:#EEF1F3">Ace Link Fence Ltd.</span>Family-owned, Surrey BC</div>
+    <div style="display:flex;flex-direction:column;gap:6px"><a href="tel:16048258777" style="color:#FFFFFF;font-weight:700;text-decoration:none">604-825-8777</a><a href="mailto:sales@acelinkfenceltd.ca" style="color:#A8B4BE">sales@acelinkfenceltd.ca</a></div>
+    <div style="display:flex;flex-direction:column;gap:6px"><span>Surrey and all Lower Mainland cities</span><span>Residential and commercial</span></div>
+    <div style="display:flex;flex-wrap:wrap;gap:6px 16px"><a href="https://www.facebook.com/acelinkfenceltd" target="_blank" style="color:#A8B4BE">Facebook</a><a href="https://www.instagram.com/acelinkfence/" target="_blank" style="color:#A8B4BE">Instagram</a></div>
+  </div>
+  <div style="max-width:1440px;margin:0 auto;padding:16px clamp(20px,4vw,56px) 28px;font-size:14px;color:#76838E">© 2026 Ace Link Fence Ltd.</div>
+  <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}"><div style="height:66px"></div></sc-if>
+</footer>
+
+<sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;left:0;right:0;bottom:0;z-index:50;display:grid;grid-template-columns:1fr 1fr">
+    <a href="tel:16048258777" style="background:#1A2229;color:#EEF1F3;font-family:'Oswald',sans-serif;font-weight:700;font-size:19px;text-transform:uppercase;text-align:center;padding:19px 8px;text-decoration:none;border-top:2px solid #F2C230">Call now</a>
+    <a href="#" onClick="{{ goContact }}" style="background:#F2C230;color:#1A2229;font-family:'Oswald',sans-serif;font-weight:700;font-size:19px;text-transform:uppercase;text-align:center;padding:19px 8px;text-decoration:none">Get a Quote</a>
+  </div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;startPage&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;work&quot;,&quot;contact&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Navigation&quot;}}">
+const U = 'https://acelinkfenceltd.ca/wp-content/uploads/';
+class Component extends DCLogic {
+  state = { page: this.props.startPage ?? 'home', menu: false, w: typeof window !== 'undefined' ? window.innerWidth : 1280, sent: false };
+  componentDidMount() { this.onResize = () => this.setState({ w: window.innerWidth }); window.addEventListener('resize', this.onResize); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); }
+  go(page) { return (e) => { e && e.preventDefault && e.preventDefault(); this.setState({ page, menu: false }); window.scrollTo(0, 0); }; }
+  renderVals() {
+    const s = this.state, m = s.w < 1140;
+    const nav = [['home', 'Home'], ['work', 'Projects'], ['contact', 'Contact']].map(([k, label]) => ({ label, go: this.go(k), color: s.page === k ? '#F2C230' : '#EEF1F3' }));
+    return {
+      nav, isMobile: m, isDesktop: !m, menuShown: m && s.menu, menuLabel: s.menu ? 'Close' : 'Menu', toggleMenu: () => this.setState({ menu: !s.menu }),
+      isHome: s.page === 'home', isWork: s.page === 'work', isContact: s.page === 'contact', notContact: s.page !== 'contact',
+      goHome: this.go('home'), goWork: this.go('work'), goContact: this.go('contact'),
+      services: [
+        { tag: 'COM', title: 'Commercial fencing', img: U + '2019/08/15.jpg', desc: 'Perimeter chain link and steel for yards, lots and facilities.' },
+        { tag: 'RES', title: 'Residential fencing', img: U + '2019/08/14.jpg', desc: 'Chain link, privacy and decorative fences for homes.' },
+        { tag: 'GATE', title: 'Gates', img: U + '2019/08/10.jpg', desc: 'Cantilever, swing and custom-welded gates.' },
+        { tag: 'ENCL', title: 'Enclosures', img: U + '2019/08/13.jpg', desc: 'Custom chain link enclosures, kennels and storage cages.' },
+        { tag: 'SPORT', title: 'Courts and pools', img: U + '2021/04/20201009_112547-e1618427322305.jpg', desc: 'Tennis and sport court fencing, netting and pool fences.' },
+        { tag: 'WELD', title: 'Welded handrails', img: U + '2019/08/12.jpg', desc: 'Steel handrails fabricated and welded to fit.' },
+        { tag: 'CLAD', title: 'Cladding and ornamental', img: U + '2019/11/1-2-1.jpg', desc: 'Low-maintenance cladding and decorative steel fences.' },
+        { tag: 'SEC', title: 'Security', img: U + '2019/11/1-3-1.jpg', desc: 'Bollards, razor wire and extra-security fencing.' }
+      ],
+      gallery: ['2019/08/5-13-2.jpg', '2019/08/1-12-4.jpg', '2019/08/1-1-9.jpg', '2019/08/3-4-8.jpg', '2019/08/1-3-12.jpg', '2019/08/4-1-4.jpg', '2019/08/2-25.jpg', '2019/08/7-2-1.jpg', '2019/08/4-28-1.jpg', '2019/08/4-27-1.jpg', '2019/08/20-5.jpg', '2019/08/20-4-1.jpg', '2019/08/16-2-1.jpg', '2019/08/10-2-2.jpg', '2019/08/10-3-1.jpg', '2019/08/2-1-12.jpg', '2019/08/2-3-11.jpg', '2019/08/2-2-11.jpg', '2019/08/1-26-2.jpg', '2019/08/1-8-7.jpg', '2019/08/1-18-2.jpg'].map(p => U + p),
+      submit: (e) => { e.preventDefault(); this.setState({ sent: true }); window.scrollTo(0, 0); },
+      sent: s.sent, notSent: !s.sent, resetForm: () => this.setState({ sent: false })
+    };
+  }
+}
+</script>
+</body>
+</html>
